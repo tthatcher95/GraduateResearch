@@ -17,7 +17,8 @@ def native_vote_csv_df():
     #     df = pd.read_csv(name,index_col=None, header=0)
     #     list_.append(df)
 
-    filepath = "/projects/canis/nativevote18/twitter/data/2019_01_0[6-9]*stream_1*"
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_01_0[6-9]*clean*"
+    # 2019_02_05_23_vote_stream_1.csv
     # filepath = "/Users/tdt62/Desktop/GraduateResearch/test_data/2018_10_*vote*"
 
     # Takes all of the csv file and makes one big dataframe
@@ -28,7 +29,7 @@ def native_vote_csv_df():
             df = pd.read_csv(name,index_col=None, header=0)
             list_.append(df)
 
-    filepath = "/projects/canis/nativevote18/twitter/data/2019_01_[1-3]*stream_1*"
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_01_[1-3]*clean*"
     # filepath = "/Users/tdt62/Desktop/GraduateResearch/test_data/2018_11_*vote*"
 
     # Takes all of the csv file and makes one big dataframe
@@ -39,7 +40,7 @@ def native_vote_csv_df():
             df = pd.read_csv(name,index_col=None, header=0)
             list_.append(df)
 
-    filepath = "/projects/canis/nativevote18/twitter/data/2019_02_0[0-6]*stream_1*"
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_02_0[0-4]*clean*"
     # filepath = "/Users/tdt62/Desktop/test_data/2018_12_01*vote*"
 
 
@@ -50,6 +51,43 @@ def native_vote_csv_df():
         else:
             df = pd.read_csv(name,index_col=None, header=0)
             list_.append(df)
+
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_02_05_[0-1]*clean*"
+    # filepath = "/Users/tdt62/Desktop/test_data/2018_12_01*vote*"
+
+
+    # Takes all of the csv file and makes one big dataframe
+    for name in glob.glob(filepath):
+        if(os.stat(name).st_size == 0) == True:
+            continue
+        else:
+            df = pd.read_csv(name,index_col=None, header=0)
+            list_.append(df)
+
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_02_05_2[0-2]*clean*"
+    # filepath = "/Users/tdt62/Desktop/test_data/2018_12_01*vote*"
+
+
+    # Takes all of the csv file and makes one big dataframe
+    for name in glob.glob(filepath):
+        if(os.stat(name).st_size == 0) == True:
+            continue
+        else:
+            df = pd.read_csv(name,index_col=None, header=0)
+            list_.append(df)
+
+    filepath = "/projects/canis/nativevote18/twitter/data/2019_02_05_2[3-9]*stream_1*"
+    # filepath = "/Users/tdt62/Desktop/test_data/2018_12_01*vote*"
+
+
+    # Takes all of the csv file and makes one big dataframe
+    for name in glob.glob(filepath):
+        if(os.stat(name).st_size == 0) == True:
+            continue
+        else:
+            df = pd.read_csv(name,index_col=None, header=0)
+            list_.append(df)
+
 
     # Makes the big df in memory
     frame = pd.concat(list_, axis = 0, ignore_index = True)

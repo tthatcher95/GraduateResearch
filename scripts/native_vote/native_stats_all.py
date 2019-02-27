@@ -11,13 +11,15 @@ import os
 def native_vote_csv_df():
 
     list_ = []
+    # filepath = "/Users/tdt62/Desktop/test_data/*vote_stream_1*"
 
     filepath = "/projects/canis/nativevote18/twitter/data/2018_10_0[6-9]*clean*"
 
     # Takes all of the csv file and makes one big dataframe
     for name in glob.glob(filepath):
-        df = pd.read_csv(name,index_col=None, header=0, delimiter='\t')
-        list_.append(df)
+        if(os.stat(name).st_size == 0) == False:
+            df = pd.read_csv(name,index_col=None, header=0)
+            list_.append(df)
 
     filepath = "/projects/canis/nativevote18/twitter/data/2018_10_[1-3]*clean*"
     #filepath = "/Users/tdt62/Desktop/test_data/2018_11_0[0-5]*clean*"
@@ -66,7 +68,7 @@ def native_vote_csv_df():
     # filepath = "/Users/tdt62/Desktop/test_data/2018_12_01*vote*"
 
 
-    # Takes all of the csv file and makes one big dataframe
+    Takes all of the csv file and makes one big dataframe
     for name in glob.glob(filepath):
         if(os.stat(name).st_size == 0) == True:
             continue
